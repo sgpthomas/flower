@@ -24,7 +24,17 @@ namespace Flower.Services {
     [DBus (name = "net.launchpad.flower")]
     public interface Client : Object {
         public abstract void print_message (string msg) throws IOError;
-        public signal void database_changed ();
+        public signal void database_changed (int i);
+    }
+
+    public enum ChangeEvent {
+        START_REMOVE,
+        REMOVE,
+        END_REMOVE,
+        START_ADD,
+        ADD,
+        END_ADD,
+        GENERIC
     }
 
     public class DBusManager {

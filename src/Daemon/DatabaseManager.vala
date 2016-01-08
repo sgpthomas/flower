@@ -128,6 +128,9 @@ namespace Flower.Daemon {
             foreach (var b in backends) {
                 DataEntry[] data = b.get_data_list (); //get data from backend
 
+                if (data.length > 0) {
+                    server.server.database_changed (ChangeEvent.START_ADD);
+                }
                 foreach (var de in data) { //loop through data entries in data
                     var exists = exists_in_db (de); //check if data entry exists in the database
                     if (exists) { //if the file exists
@@ -139,11 +142,15 @@ namespace Flower.Daemon {
                         insert_entry (de); //insert new entry
                         changed = true;
                         message ("Inserted %s %i %i %i", de.filepath, de.width, de.height, de.filesize);
+                        server.server.database_changed (ChangeEvent.ADD);
                     }
 
                     if (!(de.filepath in all_paths)) {
                         all_paths.add (de.filepath);
                     }
+                }
+                if (data.length > 0) {
+                    server.server.database_changed (ChangeEvent.END_ADD);
                 }
             }
 
@@ -177,13 +184,21 @@ namespace Flower.Daemon {
 
             stmt.reset ();
 
+            if (to_remove.length > 0) {
+                server.server.database_changed (ChangeEvent.START_REMOVE);
+            }
             foreach (string path in to_remove) {
                 remove_entry (path);
                 changed = true;
                 message ("Removed %s from database", path);
+                server.server.database_changed (ChangeEvent.REMOVE);
             }
 
-            if (changed) server.server.database_changed ();
+            if (to_remove.length > 0) {
+                server.server.database_changed (ChangeEvent.END_REMOVE);
+            }
+
+            //if (changed) server.server.database_changed (ChangeEvent.GENERIC);
         }
 
         private void connect_signals () {

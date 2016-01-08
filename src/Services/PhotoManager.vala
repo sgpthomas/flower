@@ -48,7 +48,7 @@ namespace Flower.Services {
             Statement stmt; //sqlite statement
             err = db.prepare_v2 (sql_string, sql_string.length, out stmt); //prepare statement
             if (err != Sqlite.OK) {
-                critical ("Unable to create statement");
+                critical ("Unable to create statement: %s", db.errmsg ());
             }
 
             while (stmt.step () == Sqlite.ROW) {

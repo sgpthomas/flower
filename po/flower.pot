@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 10:02-0800\n"
+"POT-Creation-Date: 2016-01-08 12:27-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Window/MainWindow.vala:98 Window/Dialog/ModifyDirectoryDialog.vala:44
+#: Window/MainWindow.vala:101 Window/Dialog/ModifyDirectoryDialog.vala:44
 msgid "Edit Photo Directories"
 msgstr ""
 
-#: Window/MainWindow.vala:114 Window/MainWindow.vala:115
+#: Window/MainWindow.vala:117 Window/MainWindow.vala:118
 msgid "Back"
+msgstr ""
+
+#: Window/MainWindow.vala:148 Window/MainWindow.vala:220
+msgid "Importing Photos"
+msgstr ""
+
+#: Window/MainWindow.vala:235
+msgid "Removing Photos"
 msgstr ""
 
 #: Window/Dialog/ModifyDirectoryDialog.vala:70
@@ -45,75 +53,75 @@ msgstr ""
 msgid "Photos"
 msgstr ""
 
-#: Window/View/PhotoView.vala:129
+#: Window/View/PhotoView.vala:127
 msgid "Start Slide show"
 msgstr ""
 
-#: Window/View/PhotoView.vala:130
+#: Window/View/PhotoView.vala:128
 msgid "Start Slide Show"
 msgstr ""
 
-#: Window/View/PhotoView.vala:134
+#: Window/View/PhotoView.vala:132
 msgid "Edit"
 msgstr ""
 
-#: Window/View/PhotoView.vala:135
+#: Window/View/PhotoView.vala:133
 msgid "Edit Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:147
+#: Window/View/PhotoView.vala:145
 msgid "Save"
 msgstr ""
 
-#: Window/View/PhotoView.vala:148
+#: Window/View/PhotoView.vala:146
 msgid "Save Changes"
 msgstr ""
 
-#: Window/View/PhotoView.vala:151
+#: Window/View/PhotoView.vala:149
 msgid "Revert"
 msgstr ""
 
-#: Window/View/PhotoView.vala:152
+#: Window/View/PhotoView.vala:150
 msgid "Revert to Original Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:168 Window/View/PhotoView.vala:169
+#: Window/View/PhotoView.vala:166 Window/View/PhotoView.vala:167
 msgid "Default Zoom"
 msgstr ""
 
-#: Window/View/PhotoView.vala:174 Window/View/PhotoView.vala:175
+#: Window/View/PhotoView.vala:172 Window/View/PhotoView.vala:173
 msgid "Zoom Out"
 msgstr ""
 
-#: Window/View/PhotoView.vala:180
+#: Window/View/PhotoView.vala:178
 msgid "Zoom"
 msgstr ""
 
-#: Window/View/PhotoView.vala:189 Window/View/PhotoView.vala:190
+#: Window/View/PhotoView.vala:187 Window/View/PhotoView.vala:188
 msgid "Zoom In"
 msgstr ""
 
-#: Window/View/PhotoView.vala:193
+#: Window/View/PhotoView.vala:191
 msgid "Previous"
 msgstr ""
 
-#: Window/View/PhotoView.vala:194
+#: Window/View/PhotoView.vala:192
 msgid "Previous Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:197
+#: Window/View/PhotoView.vala:195
 msgid "Next"
 msgstr ""
 
-#: Window/View/PhotoView.vala:198
+#: Window/View/PhotoView.vala:196
 msgid "Next Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:201
+#: Window/View/PhotoView.vala:199
 msgid "Info"
 msgstr ""
 
-#: Window/View/PhotoView.vala:202
+#: Window/View/PhotoView.vala:200
 msgid "Photo Information"
 msgstr ""
 

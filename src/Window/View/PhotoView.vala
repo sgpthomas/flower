@@ -100,10 +100,8 @@ namespace Flower.Window.View {
             var width = photo_box.get_allocated_width () - 20;
 
             if ((double)detail.height / (double)detail.width > (double)height / (double)width) {
-                message ("height");
                 zoom = ((double) height / (double) detail.height) * 100.0;
             } else {
-                message ("width");
                 zoom = ((double) width / (double) detail.width) * 100.0;
             }
         }

@@ -57,12 +57,12 @@ namespace Flower.Daemon.Backends {
         			while ((info = enumerator.next_file (null)) != null) { //loop through files provided by enumerator
                         if (info.get_content_type ().split ("/")[0] == "image") { //if the mimetype is an image
                             if (!(info.get_content_type ().split ("/")[1] in black_list)) {
-                                if (map.get (info.get_name ()) == null) { //if info is not already in the map, add it?
+                                if (map.get (info.get_name ()) == null) { //if info is not already in the map, add it
                                     map.set (info.get_name (), info);
                                     count += 1;
                                     //message ("%s", info.get_name ());
                                 }
-                            }        
+                            }
                         }
         			}
 

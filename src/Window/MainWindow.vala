@@ -43,6 +43,9 @@ namespace Flower.Window {
         private PhotoView photo_view;
         private WelcomeView welcome_view;
 
+        private Revealer progress_revealer;
+        private ProgressBar progress_bar;
+
         //signals
         public signal void loaded_views ();
         public signal void key_pressed (Gdk.EventKey event);
@@ -140,6 +143,20 @@ namespace Flower.Window {
             var main_box = new Box (Orientation.VERTICAL, 0);
             main_box.pack_start (main_stack, true, true, 0);
 
+            progress_revealer = new Revealer ();
+            progress_bar = new ProgressBar ();
+            progress_bar.set_text (_("Importing Photos"));
+            progress_bar.set_show_text (true);
+            progress_revealer.add (progress_bar);
+            progress_revealer.set_transition_type (RevealerTransitionType.SLIDE_UP);
+
+            Timeout.add (500, () => {
+                progress_bar.pulse ();
+                return true;
+            });
+
+            main_box.pack_end (progress_revealer, false, false, 0);
+
             this.add (main_box);
         }
 
@@ -193,15 +210,59 @@ namespace Flower.Window {
                 new ModifyDirectoryDialog (this).run ();
             });
 
-            dbus_manager.client.database_changed.connect (() => {
-                message ("Updating Client");
-                if (database_settings.photo_directories.length > 0) {
-                    main_stack.set_visible_child_name ("view-stack");
-                } else {
-                    main_stack.set_visible_child_name (welcome_view.get_name ());
+            dbus_manager.client.database_changed.connect ((id) => {
+                ChangeEvent e = (ChangeEvent) id;
+                message (e.to_string ());
+
+                switch (id) {
+                    case ChangeEvent.START_ADD:
+                        progress_revealer.set_reveal_child (true);
+                        progress_bar.set_text (_("Importing Photos"));
+                        break;
+
+                    case ChangeEvent.ADD:
+                        progress_bar.pulse ();
+                        break;
+
+                    case ChangeEvent.END_ADD:
+                        progress_revealer.set_reveal_child (false);
+                        var v = (ListView) views[0];
+                        v.update ();
+                        break;
+
+                    case ChangeEvent.START_REMOVE:
+                        progress_revealer.set_reveal_child (true);
+                        progress_bar.set_text (_("Removing Photos"));
+
+                        message (database_settings.photo_directories.length.to_string ());
+                        message ((database_settings.photo_directories.length > 0).to_string ());
+                        if (database_settings.photo_directories.length > 0) {
+                            if (main_stack.get_visible_child_name () != "view-stack") {
+                                main_stack.set_visible_child_name ("view-stack");
+                            }
+                        } else {
+                            main_stack.set_visible_child_name (welcome_view.get_name ());
+                        }
+
+                        break;
+
+                    case ChangeEvent.REMOVE:
+                        progress_bar.pulse ();
+                        break;
+
+                    case ChangeEvent.END_REMOVE:
+                        progress_revealer.set_reveal_child (false);
+                        var v = (ListView) views[0];
+                        v.update ();
+                        break;
+
+                    //case ChangeEvent.GENERIC:
+                    //    var v = (ListView) views[0];
+                    //    v.update ();
+                    //    break;
                 }
-                var v = (ListView) views[0];
-                v.update ();
+
+
             });
 
             this.key_press_event.connect ((key) => {

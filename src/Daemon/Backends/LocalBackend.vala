@@ -20,8 +20,8 @@ namespace Flower.Daemon.Backends {
 
     public class LocalBackend : Object, Backend {
 
-        WatchDog[] dogs; //pack of dogs
-        string[] photo_dirs; //directories to search for photos
+        private WatchDog[] dogs; //pack of dogs
+        private string[] photo_dirs; //directories to search for photos
 
         public LocalBackend () {
             photo_dirs = db_settings.photo_directories; //get photo dirs from dconf
@@ -47,8 +47,6 @@ namespace Flower.Daemon.Backends {
 
         private void connect_signals () {
             db_settings.changed.connect (() => {
-                message ("changed");
-
                 //convert vala arrays to gee arrays for easier manipulation
                 Gee.ArrayList<string> dirs = new Gee.ArrayList<string>.wrap(photo_dirs);
                 Gee.ArrayList<string> diff = new Gee.ArrayList<string>.wrap(db_settings.photo_directories);
@@ -95,9 +93,11 @@ namespace Flower.Daemon.Backends {
 
                 photo_dirs = db_settings.photo_directories;
 
-                if (refr) refresh ();
-
-                update_database (); //fire signal to update database
+                if (refr) {
+                    message ("changed");
+                    refresh ();
+                    update_database (); //fire signal to update database
+                }
             });
         }
 

@@ -21,6 +21,16 @@ extern void exit (int exit_code);
 
 namespace Flower.Daemon {
 
+    public enum ChangeEvent {
+        START_REMOVE,
+        REMOVE,
+        END_REMOVE,
+        START_ADD,
+        ADD,
+        END_ADD,
+        GENERIC
+    }
+
     /* Class where all of the dbus accessible functions reside */
     [DBus (name = "net.launchpad.flower")]
     public class Server : Object {
@@ -41,7 +51,7 @@ namespace Flower.Daemon {
             db_manager.reset_database ();
         }
 
-        public signal void database_changed ();
+        public signal void database_changed (int i);
     }
 
     /* Error Class */
