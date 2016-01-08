@@ -28,3 +28,11 @@ FlowerWindowDialogDirectoryRow {
 .edit-toolbar {
     background: linear-gradient(mix(@base_color,@error_color, 0.5), shade(@error_color, 0.5));
 }
+
+GtkFlowBox .grid-child {
+  padding: 0px;
+  border-radius: 0px; 
+}
+GtkFlowBox .grid-child:selected {
+    outline-offset: 0px; 
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 09:37-0800\n"
+"POT-Creation-Date: 2016-01-08 10:02-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Window/MainWindow.vala:98
+#: Window/MainWindow.vala:98 Window/Dialog/ModifyDirectoryDialog.vala:44
 msgid "Edit Photo Directories"
 msgstr ""
 
@@ -25,15 +25,15 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: Window/Dialog/ModifyDirectoryDialog.vala:67
+#: Window/Dialog/ModifyDirectoryDialog.vala:70
 msgid "No Photo Directories"
 msgstr ""
 
-#: Window/Dialog/ModifyDirectoryDialog.vala:78
+#: Window/Dialog/ModifyDirectoryDialog.vala:81
 msgid "Exit"
 msgstr ""
 
-#: Window/Dialog/ModifyDirectoryDialog.vala:79
+#: Window/Dialog/ModifyDirectoryDialog.vala:82
 msgid "Add"
 msgstr ""
 

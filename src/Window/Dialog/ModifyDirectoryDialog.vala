@@ -41,10 +41,13 @@ namespace Flower.Window.Dialog {
                 this.set_transient_for (window);
             }
 
+            this.set_title (_("Edit Photo Directories"));
             this.set_size_request (450, 300);
             this.set_resizable (false);
             this.set_deletable (false);
             this.set_modal (true);
+
+            ((Box) this.get_action_area ()).border_width = 5;
 
             setup_layout ();
 
@@ -145,6 +148,8 @@ namespace Flower.Window.Dialog {
             content = new Box (Orientation.HORIZONTAL, 0);
 
             icon = new Image.from_icon_name (icon_name, IconSize.BUTTON);
+            icon.margin_right = 4;
+            icon.margin_left = 2;
 
             label = new Label (filename);
             label.set_halign (Align.START);
