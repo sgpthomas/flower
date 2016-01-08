@@ -45,6 +45,7 @@ namespace Flower.Window {
 
         //signals
         public signal void loaded_views ();
+        public signal void key_pressed (Gdk.EventKey event);
 
         //constructor
         public MainWindow () {
@@ -201,6 +202,22 @@ namespace Flower.Window {
                 }
                 var v = (ListView) views[0];
                 v.update ();
+            });
+
+            this.key_press_event.connect ((key) => {
+
+                if (key.keyval == Gdk.Key.Escape) {
+                    ((ListView) views[0]).clear_selected ();
+                    selection_mode = false;
+                }
+
+                key_pressed (key);
+                return false;
+            });
+
+            this.button_press_event.connect ((button) => {
+                ((ListView) views[0]).clear_selected ();
+                return false;
             });
         }
 

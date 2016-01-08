@@ -34,6 +34,8 @@ namespace Flower.Window.View {
         private int flow_id = -1;
         private int index = -1;
 
+        private List<int> photos_selected = new List<int> ();
+
         public ListView (MainWindow window) {
             this.window = window;
 
@@ -126,6 +128,32 @@ namespace Flower.Window.View {
             }
 
             show_image (content[flow_id].get_detail (index), flow_id, index);
+        }
+
+        public void add_selected (int i) {
+            if (photos_selected.index (i) == -1) {
+                photos_selected.append (i);
+            }
+        }
+
+        public void remove_selected (int i) {
+            if (photos_selected.index (i) != -1) {
+                photos_selected.remove (i);
+            }
+        }
+
+        public void clear_selected () {
+            photos_selected = new List<int> ();
+            this.queue_draw ();
+        }
+
+        public bool has_selected (int i = -1) {
+            if (i == -1) {
+                return !(photos_selected.length () == 0);
+            } else {
+                return photos_selected.index (i) != -1;
+            }
+
         }
 
         private void connect_signals () {
@@ -243,8 +271,6 @@ namespace Flower.Window.View {
         private RGBA selected_color;
         private RGBA hover_color;
 
-        private bool selection_mode;
-
         private int thumb_margin = 3;
 
         public PhotoImage (ListView list_view, int id, PhotoDetail pdetail, int size) {
@@ -309,16 +335,23 @@ namespace Flower.Window.View {
                 }
 
                 if (e.type == EventType.BUTTON_PRESS) {
+                    //message (e.button.x.to_string () + " " + e.button.y.to_string ());
+                    //message ("%i %i", checked.get_width ()/2 - 2, checked.get_width () + 2);
+                    //if ((int)e.button.x > (checked.get_width ()/2) - 3 && (int)e.button.x < checked.get_width () + 3) {
+                    if ((int)e.button.x < checked.get_width () * 2) {
+                        //if ((int)e.button.y > (checked.get_height ()/2) - 3 && (int)e.button.y < checked.get_height () + 3) {
+                        if ((int)e.button.y < checked.get_height () * 2) {
+                            selection_mode = true;
+                        }
+                    } else if (selection_mode && !(list_view.has_selected ())) {
+                        selection_mode = false;
+                    }
+
                     if (selection_mode) {
                         set_selected (!get_selected ());
                     } else {
                         list_view.show_image (detail, id, this.get_index ());
                     }
-                }
-
-                if (e.type == EventType.KEY_PRESS) {
-                    message ("yu");
-                    message (e.key.str + " " + e.key.hardware_keycode.to_string () + " " + e.key.group.to_string ());
                 }
 
                 return false;
@@ -350,15 +383,18 @@ namespace Flower.Window.View {
 
         public void set_selected (bool is_selected) {
             if (is_selected) {
-                set_state_flags (get_state_flags () | Gtk.StateFlags.SELECTED, false);
+                //set_state_flags (get_state_flags () | Gtk.StateFlags.SELECTED, false);
+                list_view.add_selected (this.get_index ());
             } else {
-                unset_state_flags (Gtk.StateFlags.SELECTED);
+                //unset_state_flags (Gtk.StateFlags.SELECTED);
+                list_view.remove_selected (this.get_index ());
             }
             queue_draw ();
         }
 
         public bool get_selected () {
-            return ((get_state_flags () & Gtk.StateFlags.SELECTED) == Gtk.StateFlags.SELECTED);
+            return (list_view.has_selected (this.get_index ()));
+            //return ((get_state_flags () & Gtk.StateFlags.SELECTED) == Gtk.StateFlags.SELECTED);
         }
 
         public override bool draw (Cairo.Context cr) {
@@ -368,7 +404,8 @@ namespace Flower.Window.View {
             var center_x = (event_box.get_allocated_width () - width) / 2;
             var center_y = (event_box.get_allocated_height () - height) / 2;
 
-            if ((get_state_flags () & StateFlags.SELECTED) == StateFlags.SELECTED) {
+            //if ((get_state_flags () & StateFlags.SELECTED) == StateFlags.SELECTED) {
+            if (list_view.has_selected (this.get_index ())) {
                 cr.save ();
                 cr.set_source_rgba (selected_color.red, selected_color.green, selected_color.blue, selected_color.alpha);
                 cr.translate (center_x, center_y);
@@ -395,7 +432,8 @@ namespace Flower.Window.View {
 
             //checked stuff
             if ((get_state_flags () & StateFlags.PRELIGHT) == StateFlags.PRELIGHT) {
-                if ((get_state_flags () & Gtk.StateFlags.SELECTED) == Gtk.StateFlags.SELECTED) {
+                //if ((get_state_flags () & Gtk.StateFlags.SELECTED) == Gtk.StateFlags.SELECTED) {
+                if (list_view.has_selected (this.get_index ())) {
                     int x = hover_uncheck.get_width ()/2;
                     int y = hover_uncheck.get_height ()/2;
 
@@ -408,7 +446,8 @@ namespace Flower.Window.View {
                     Gdk.cairo_set_source_pixbuf (cr, hover_check, x, y);
                     cr.paint ();
                 }
-            } else if ((get_state_flags () & Gtk.StateFlags.SELECTED) == Gtk.StateFlags.SELECTED) {
+            } //else if ((get_state_flags () & Gtk.StateFlags.SELECTED) == Gtk.StateFlags.SELECTED) {
+            else if (list_view.has_selected (this.get_index ())) {
                 int x = checked.get_width ()/2;
                 int y = checked.get_height ()/2;
 

@@ -25,6 +25,7 @@ namespace Flower {
     /* Global Variables */
     public DBusManager dbus_manager;
     public PhotoManager photo_manager;
+    private bool selection_mode;
 
     /* Settings Objects*/
     public SavedState state;
