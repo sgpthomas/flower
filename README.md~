@@ -6,12 +6,11 @@ Dependencies
 ------------
 In order to build and install flower, you need the following dependencies:
     *libgtk-3-dev
+    *libnotify-dev
     *libgranite-dev
-    *libglib2.0-dev
-    *sqlite3
     
 To install these, run the following command:
-    sudo apt-get install libgtk-3-dev libgranite-dev libglib2.0-dev sqlite3
+    sudo apt-get install libgtk-3-dev libnotify-dev libgranite-dev libcanberra-gtk3-dev libglib2.0-dev
     
     
 Install
@@ -22,7 +21,7 @@ Run the following commands in succession in order to build and install flower
     cd build
     cmake CMAKE_INSTALL_PREFIX=/usr ../
     make
-    sudo make install #Installs app system wide. If you don't do this, you can run the app with 'src/flower'
+    sudo make install #Installs app system wide, otherwise you can run the app with 'src/chronos'
     
     -- or --
     
