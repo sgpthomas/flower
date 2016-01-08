@@ -243,6 +243,8 @@ namespace Flower.Window.View {
         private RGBA selected_color;
         private RGBA hover_color;
 
+        private bool selection_mode;
+
         private int thumb_margin = 3;
 
         public PhotoImage (ListView list_view, int id, PhotoDetail pdetail, int size) {
@@ -297,6 +299,7 @@ namespace Flower.Window.View {
             }
 
             this.add_events (EventMask.POINTER_MOTION_MASK);
+            this.add_events (EventMask.KEY_PRESS_MASK);
 
             event_box.event.connect ((e) => {
                 if (e.type == EventType.ENTER_NOTIFY) {
@@ -306,13 +309,18 @@ namespace Flower.Window.View {
                 }
 
                 if (e.type == EventType.BUTTON_PRESS) {
-                    set_selected (!get_selected ());
+                    if (selection_mode) {
+                        set_selected (!get_selected ());
+                    } else {
+                        list_view.show_image (detail, id, this.get_index ());
+                    }
                 }
 
-                if (e.type == EventType.DOUBLE_BUTTON_PRESS) {
-                    //message (this.get_index ().to_string ());
-                    list_view.show_image (detail, id, this.get_index ());
+                if (e.type == EventType.KEY_PRESS) {
+                    message ("yu");
+                    message (e.key.str + " " + e.key.hardware_keycode.to_string () + " " + e.key.group.to_string ());
                 }
+
                 return false;
             });
         }
