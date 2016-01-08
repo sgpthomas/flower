@@ -97,7 +97,15 @@ namespace Flower.Window.View {
 
         private void figure_zoom () {
             var height = photo_box.get_allocated_height () - 20;
-            zoom = ((double) height / (double) detail.height) * 100.0;
+            var width = photo_box.get_allocated_width () - 20;
+
+            if ((double)detail.height / (double)detail.width > (double)height / (double)width) {
+                message ("height");
+                zoom = ((double) height / (double) detail.height) * 100.0;
+            } else {
+                message ("width");
+                zoom = ((double) width / (double) detail.width) * 100.0;
+            }
         }
 
         private void setup_layout () {

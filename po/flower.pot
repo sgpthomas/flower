@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-08 00:54-0800\n"
+"POT-Creation-Date: 2016-01-08 09:37-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,75 +45,75 @@ msgstr ""
 msgid "Photos"
 msgstr ""
 
-#: Window/View/PhotoView.vala:121
+#: Window/View/PhotoView.vala:129
 msgid "Start Slide show"
 msgstr ""
 
-#: Window/View/PhotoView.vala:122
+#: Window/View/PhotoView.vala:130
 msgid "Start Slide Show"
 msgstr ""
 
-#: Window/View/PhotoView.vala:126
+#: Window/View/PhotoView.vala:134
 msgid "Edit"
 msgstr ""
 
-#: Window/View/PhotoView.vala:127
+#: Window/View/PhotoView.vala:135
 msgid "Edit Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:139
+#: Window/View/PhotoView.vala:147
 msgid "Save"
 msgstr ""
 
-#: Window/View/PhotoView.vala:140
+#: Window/View/PhotoView.vala:148
 msgid "Save Changes"
 msgstr ""
 
-#: Window/View/PhotoView.vala:143
+#: Window/View/PhotoView.vala:151
 msgid "Revert"
 msgstr ""
 
-#: Window/View/PhotoView.vala:144
+#: Window/View/PhotoView.vala:152
 msgid "Revert to Original Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:160 Window/View/PhotoView.vala:161
+#: Window/View/PhotoView.vala:168 Window/View/PhotoView.vala:169
 msgid "Default Zoom"
 msgstr ""
 
-#: Window/View/PhotoView.vala:166 Window/View/PhotoView.vala:167
+#: Window/View/PhotoView.vala:174 Window/View/PhotoView.vala:175
 msgid "Zoom Out"
 msgstr ""
 
-#: Window/View/PhotoView.vala:172
+#: Window/View/PhotoView.vala:180
 msgid "Zoom"
 msgstr ""
 
-#: Window/View/PhotoView.vala:181 Window/View/PhotoView.vala:182
+#: Window/View/PhotoView.vala:189 Window/View/PhotoView.vala:190
 msgid "Zoom In"
 msgstr ""
 
-#: Window/View/PhotoView.vala:185
+#: Window/View/PhotoView.vala:193
 msgid "Previous"
 msgstr ""
 
-#: Window/View/PhotoView.vala:186
+#: Window/View/PhotoView.vala:194
 msgid "Previous Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:189
+#: Window/View/PhotoView.vala:197
 msgid "Next"
 msgstr ""
 
-#: Window/View/PhotoView.vala:190
+#: Window/View/PhotoView.vala:198
 msgid "Next Photo"
 msgstr ""
 
-#: Window/View/PhotoView.vala:193
+#: Window/View/PhotoView.vala:201
 msgid "Info"
 msgstr ""
 
-#: Window/View/PhotoView.vala:194
+#: Window/View/PhotoView.vala:202
 msgid "Photo Information"
 msgstr ""
 
