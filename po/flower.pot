@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-03 12:53-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: Window/MainWindow.vala:97
+msgid "Edit Photo Directories"
+msgstr ""
+
+#: Window/MainWindow.vala:113 Window/MainWindow.vala:114
+msgid "Back"
+msgstr ""
+
+#: Window/Dialog/ModifyDirectoryDialog.vala:67
+msgid "No Photo Directories"
+msgstr ""
+
+#: Window/Dialog/ModifyDirectoryDialog.vala:78
+msgid "Exit"
+msgstr ""
+
+#: Window/Dialog/ModifyDirectoryDialog.vala:79
+msgid "Add"
+msgstr ""
+
+#: Window/Dialog/FolderChooser.vala:26
+msgid "Select photo directories"
+msgstr ""
+
+#: Window/View/ListView.vala:139
+msgid "Photos"
+msgstr ""
+
+#: Window/View/PhotoView.vala:121
+msgid "Start Slide show"
+msgstr ""
+
+#: Window/View/PhotoView.vala:122
+msgid "Start Slide Show"
+msgstr ""
+
+#: Window/View/PhotoView.vala:126
+msgid "Edit"
+msgstr ""
+
+#: Window/View/PhotoView.vala:127
+msgid "Edit Photo"
+msgstr ""
+
+#: Window/View/PhotoView.vala:139
+msgid "Save"
+msgstr ""
+
+#: Window/View/PhotoView.vala:140
+msgid "Save Changes"
+msgstr ""
+
+#: Window/View/PhotoView.vala:143
+msgid "Revert"
+msgstr ""
+
+#: Window/View/PhotoView.vala:144
+msgid "Revert to Original Photo"
+msgstr ""
+
+#: Window/View/PhotoView.vala:160 Window/View/PhotoView.vala:161
+msgid "Default Zoom"
+msgstr ""
+
+#: Window/View/PhotoView.vala:166 Window/View/PhotoView.vala:167
+msgid "Zoom Out"
+msgstr ""
+
+#: Window/View/PhotoView.vala:172
+msgid "Zoom"
+msgstr ""
+
+#: Window/View/PhotoView.vala:181 Window/View/PhotoView.vala:182
+msgid "Zoom In"
+msgstr ""
+
+#: Window/View/PhotoView.vala:185
+msgid "Previous"
+msgstr ""
+
+#: Window/View/PhotoView.vala:186
+msgid "Previous Photo"
+msgstr ""
+
+#: Window/View/PhotoView.vala:189
+msgid "Next"
+msgstr ""
+
+#: Window/View/PhotoView.vala:190
+msgid "Next Photo"
+msgstr ""
+
+#: Window/View/PhotoView.vala:193
+msgid "Info"
+msgstr ""
+
+#: Window/View/PhotoView.vala:194
+msgid "Photo Information"
+msgstr ""
+
+#: Window/View/WelcomeView.vala:32
+msgid "You don't have any photos!"
+msgstr ""
+
+#: Window/View/WelcomeView.vala:32
+msgid "Select a photos directory."
+msgstr ""
+
+#: Window/View/WelcomeView.vala:34
+msgid "Add Directory"
+msgstr ""
+
+#: Window/View/WelcomeView.vala:34
+msgid "Select a directory with photos."
+msgstr ""
+
+#: Window/View/WelcomeView.vala:58
+msgid "Welcome"
+msgstr ""

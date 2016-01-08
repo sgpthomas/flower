@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/net/launchpad/flower/database/" id="net.launchpad.flower.database" gettext-domain="flower">
+        <key name="refresh-rate" type="i">
+            <default>60</default>
+            <summary>Refresh Rate</summary>
+            <description>The rate that directories are scanned for changes</description>
+        </key>
+        <key name="photo-directories" type="as">
+            <default>['~/Pictures']</default>
+            <summary>A List of Directories</summary>
+            <description>The list of directories that are scanned for photos</description>
+        </key>
+    </schema>
+    <schema path="/net/launchpad/flower/saved/" id="net.launchpad.flower.saved" gettext-domain="flower">
+        <key name="height" type="i">
+            <default>800</default>
+            <summary>Window Height</summary>
+            <description>The saved height of the window</description>
+        </key>
+        <key name="width" type="i">
+            <default>950</default>
+            <summary>Window Width</summary>
+            <description>The saved width of the window</description>
+        </key>
+        <!--key name="pos-x" type="i">
+            <default>-1</default>
+            <summary>Window X Position</summary>
+            <description>If value is -1, place the window in the center</description>
+        </key>
+        <key name="pos-y" type="i">
+            <default>-1</default>
+            <summary>Window Y Position</summary>
+            <description>If value is -1, place the window in the center</description>
+        </key-->
+    </schema>
+     <schema path="/net/launchpad/flower/preferences/" id="net.launchpad.flower.preferences" gettext-domain="flower">
+         <key name="spacing" type="i">
+             <default>5</default>
+             <summary>Photo spacing</summary>
+             <description>The distance each photo has as padding on the left and right.</description>
+         </key>
+         <key name="photos-per-row" type="i">
+             <default>5</default>
+             <summary>Number of photos per row</summary>
+             <description>Each photo will be scaled down so that there are this many photos per row.</description>
+         </key>
+         <key name="zoom-increment" type="i">
+             <default>5</default>
+             <summary>Default zoom increment</summary>
+             <description>The default increment that the zoom in and out buttons apply to the photo.</description>
+         </key>
+     </schema>
+</schemalist>

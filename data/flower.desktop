@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Name=Flower
+Version=0.1.0
+Comment=This is a photos applicaiton.
+GenericName=Photos
+StartupWMClass=flower
+Exec=flower
+Icon=multimedia-photo-manager
+Terminal=false
+Categories=Graphics;Photography;GNOME;GTK;
+Keywords=album;camera;cameras;crop;edit;enhance;export;gallery;image;images;import;organize;photo;photographs;photos;picture;pictures;photography;print;publish;rotate;share;tags;video;facebook;flickr;picasa;youtube;piwigo;
+X-GNOME-Keywords=album;camera;cameras;crop;edit;enhance;export;gallery;image;images;import;organize;photo;photographs;photos;picture;pictures;photography;print;publish;rotate;share;tags;video;facebook;flickr;picasa;youtube;piwigo;
+StartupNotify=true
+X-GNOME-Gettext-Domain=flower
+Actions=AboutDialog;
+
+[Desktop Action AboutDialog]
+Exec=model --about
+Name=About Flower

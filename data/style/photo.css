@@ -1,0 +1,30 @@
+FlowerWindowViewPhotoImage:selected {
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+.photo-flow-box-label {
+    font-family: Open Sans Light;
+	font-size: 12px;
+	padding-top: 5px;
+}
+
+MarlinViewChromeBasicBreadcrumbsEntry {
+    color: #c0c6c4;
+    text-shadow: 0 1px alpha (#000, 0.4);
+    icon-shadow: 0 1px alpha (#000, 0.4);
+}
+
+FlowerWindowDialogDirectoryRow {
+    font-family: Open Sans Light;
+    font-size:11px;
+}
+
+.no-photo-directories {
+    font-family: Open Sans Light;
+    font-size: 16px
+}
+
+.edit-toolbar {
+    background: linear-gradient(mix(@base_color,@error_color, 0.5), shade(@error_color, 0.5));
+}
