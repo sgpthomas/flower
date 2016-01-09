@@ -11,7 +11,7 @@ In order to build and install flower, you need the following dependencies:
     libglib2.0-dev
     sqlite3
 
-To install these, run the following command:
+To install these (in Debian based systems), run the following command:
     `sudo apt-get install libgtk-3-dev libgranite-dev libglib2.0-dev sqlite3`
 
 
