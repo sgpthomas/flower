@@ -231,7 +231,7 @@ namespace Flower.Window.View {
 
             //message (width.to_string ());
             //message (factor.to_string ());
-
+            message (Gtk.main_level ().to_string ());
             foreach (var det in details) {
                 var photo = new PhotoImage (list_view, id, det, (int) factor);
                 this.append (photo);

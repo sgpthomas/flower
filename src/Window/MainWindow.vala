@@ -58,7 +58,7 @@ namespace Flower.Window {
             this.set_position (WindowPosition.CENTER);
             this.set_size_request (1080, 700);
             this.set_default_size (state.width, state.height);
-            this.destroy.connect (Gtk.main_quit);
+            this.destroy.connect (quit);
             Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
             //initialize style sheet
@@ -211,8 +211,8 @@ namespace Flower.Window {
             });
 
             dbus_manager.client.database_changed.connect ((id) => {
-                ChangeEvent e = (ChangeEvent) id;
-                message (e.to_string ());
+                //ChangeEvent e = (ChangeEvent) id;
+                //message (e.to_string ());
 
                 switch (id) {
                     case ChangeEvent.START_ADD:
@@ -278,6 +278,18 @@ namespace Flower.Window {
 
             this.button_press_event.connect ((button) => {
                 ((ListView) views[0]).clear_selected ();
+                return false;
+            });
+        }
+
+        private void quit () {
+            Timeout.add (100, () => {
+                if (Gtk.main_level () == 0) {
+                    this.close ();
+                    return true;
+                }
+
+                Gtk.main_quit ();
                 return false;
             });
         }
