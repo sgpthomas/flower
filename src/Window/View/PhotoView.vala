@@ -357,9 +357,46 @@ namespace Flower.Window.View {
                 y_pos = saved_y + drag_y;
             }
 
+            //if (!press) {
+                animate_back (width, height, pict.get_width (), pict.get_height ());
+            //}
+
             cr.translate (x_pos, y_pos);
             Gdk.cairo_set_source_pixbuf (cr, pict, 0, 0);
             cr.paint ();
+        }
+
+        //no fancy animations yet
+        private void animate_back (int width, int height, int pict_width, int pict_height) {
+            //message ("%i %i %s", width/pict_width, height/pict_height, zoom.to_string ());
+
+            if (width/pict_width < 1) { //picture is zoomed so that it is outside of viewing box
+                if (x_pos < width - pict_width) {
+                    x_pos = width - pict_width;
+                } else if (x_pos > 0) {
+                    x_pos = 0;
+                }
+            } else {
+                if (x_pos < 0) { //left side is out of frame
+                    x_pos = 0;
+                } else if (x_pos + pict_width > width) { //right side is out of frame
+                    x_pos = width - pict_width;
+                }
+            }
+
+            if (height/pict_height < 1) { //picture is zoomed so that it is outside of viewing box
+                if (y_pos < height - pict_height) { //right side boundry
+                    y_pos = height - pict_height;
+                } else if (y_pos > 0) { //left side boundry
+                    y_pos = 0;
+                }
+            } else { //picture is in viewing box
+                if (y_pos < 0) {
+                    y_pos = 0;
+                } else if (y_pos + pict_height > height) {
+                    y_pos = height - pict_height;
+                }
+            }
         }
 
         public string get_id () {
