@@ -112,6 +112,7 @@ namespace Flower.Window.View {
             event_box = new EventBox ();
             this.add_events (EventMask.POINTER_MOTION_MASK);
             this.add_events (EventMask.SCROLL_MASK);
+            this.add_events (EventMask.POINTER_MOTION_MASK);
             event_box.add (canvas);
             photo_box.add (event_box);
             photo_box.expand = true;
@@ -288,6 +289,8 @@ namespace Flower.Window.View {
                     //start_x = x_pos;
                     start_y = e.motion.y;
                     //start_y = y_pos;
+                    //var screen = this.window.get_screen ().get_active_window ();
+                    //screen.set_cursor (new Gdk.Cursor.from_name (Gdk.Display.get_default (), "grabbing"));
                 }
 
                 if (e.type == EventType.MOTION_NOTIFY && press) {
@@ -304,6 +307,9 @@ namespace Flower.Window.View {
                     drag_y = 0;
                     saved_x = x_pos;
                     saved_y = y_pos;
+
+                    //var screen = this.window.get_screen ().get_active_window ();
+                    //screen.set_cursor (new Gdk.Cursor.from_name (Gdk.Display.get_default (), "hand"));
                 }
 
                 if (e.type == EventType.SCROLL) {
@@ -312,6 +318,16 @@ namespace Flower.Window.View {
                     } else if (e.scroll.direction == ScrollDirection.DOWN) {
                         zoomer.set_value (zoomer.get_value () - preferences.zoom_increment);
                     }
+                }
+
+                if (e.type == EventType.ENTER_NOTIFY) {
+                    //var screen = this.window.get_screen ().get_active_window ();
+                    //screen.set_cursor (new Gdk.Cursor.from_name (Gdk.Display.get_default (), "hand"));
+                }
+
+                if (e.type == EventType.LEAVE_NOTIFY) {
+                    //var screen = this.window.get_screen ().get_active_window ();
+                    //screen.set_cursor (new Gdk.Cursor.from_name (Gdk.Display.get_default (), "arrow"));
                 }
 
                 return false;

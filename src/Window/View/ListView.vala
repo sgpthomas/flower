@@ -25,7 +25,7 @@ namespace Flower.Window.View {
 
     public class ListView : Gtk.Box, Flower.Window.View.GenericView {
 
-        private MainWindow window;
+        public MainWindow window;
 
         private ScrolledWindow scroll;
         private PhotoFlowBox[] content;
@@ -231,7 +231,6 @@ namespace Flower.Window.View {
 
             //message (width.to_string ());
             //message (factor.to_string ());
-            message (Gtk.main_level ().to_string ());
             foreach (var det in details) {
                 var photo = new PhotoImage (list_view, id, det, (int) factor);
                 this.append (photo);
@@ -330,17 +329,24 @@ namespace Flower.Window.View {
             event_box.event.connect ((e) => {
                 if (e.type == EventType.ENTER_NOTIFY) {
                     set_hover (true);
+                    //var screen = list_view.window.get_screen ().get_active_window ();
+                    //screen.set_cursor (new Gdk.Cursor.from_name (Gdk.Display.get_default (), "hand"));
                 } else if (e.type == EventType.LEAVE_NOTIFY) {
                     set_hover (false);
+                    //var screen = list_view.window.get_screen ().get_active_window ();
+                    //screen.set_cursor (new Gdk.Cursor.from_name (Gdk.Display.get_default (), "cursor"));
                 }
 
                 if (e.type == EventType.BUTTON_PRESS) {
                     //message (e.button.x.to_string () + " " + e.button.y.to_string ());
                     //message ("%i %i", checked.get_width ()/2 - 2, checked.get_width () + 2);
                     //if ((int)e.button.x > (checked.get_width ()/2) - 3 && (int)e.button.x < checked.get_width () + 3) {
+                    //var w = (this.get_allocated_width () - detail.width).abs () / 2.0;
+                    var h = (event_box.get_allocated_height () - thumb.height).abs () / 2.0;
                     if ((int)e.button.x < checked.get_width () * 2) {
                         //if ((int)e.button.y > (checked.get_height ()/2) - 3 && (int)e.button.y < checked.get_height () + 3) {
-                        if ((int)e.button.y < checked.get_height () * 2) {
+                        message ("%s %s:%s", e.button.y.to_string (), h.to_string (), (h + (checked.get_height () * 2)).to_string ());
+                        if ((int)e.button.y < h + (checked.get_height () * 2)) {
                             selection_mode = true;
                         }
                     } else if (selection_mode && !(list_view.has_selected ())) {
