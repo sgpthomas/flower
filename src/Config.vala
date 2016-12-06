@@ -16,6 +16,8 @@
 * with Flower. If not, see http://www.gnu.org/licenses/.
 */
 
+// you've been hacked!!!
+
 namespace Constants {
 	public const string DATADIR = "/usr/share";
 	public const string PKG_DATADIR = "/usr/share/flower";
